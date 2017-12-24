@@ -6,8 +6,29 @@
 5. 生产开发环境配置分离，使用merge融合公共配置
 6. Resolve解析 resolve.alias设置别名 resolve.extensions 自动解析相应的扩展
 
-### 初始设置代码结构如下：
-
+### 初始设置目录树如下：
+```
+├── README.md
+├── build
+│   ├── webpack.common.js
+│   ├── webpack.dev.js
+│   └── webpack.prop.js
+├── dist
+├── index.html
+├── package-lock.json
+├── package.json
+└── src
+    ├── App.vue
+    ├── assets
+    │   └── logo.png
+    ├── components
+    ├── index.js
+    ├── pages
+    ├── router
+    │   └── index.js
+    └── views
+        └── apple.vue
+```
 
 ### 初始设置代码如下：
 webpack.common.js
