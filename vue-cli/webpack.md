@@ -6,7 +6,10 @@
 5. 生产开发环境配置分离，使用merge融合公共配置
 6. Resolve解析 resolve.alias设置别名 resolve.extensions 自动解析相应的扩展
 
-###初始设置代码如下：
+### 初始设置代码结构如下：
+
+
+### 初始设置代码如下：
 webpack.common.js
 ```
 const path = require('path');
