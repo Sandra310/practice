@@ -15,6 +15,10 @@ new HtmlWebpackPlugin({
 ### webpack 补充2
 
 
+报错：
+[Vue warn]: You are using the runtime-only build of Vue where the template option is not available. Either pre-compile the templates into render functions, or use the compiler-included build.
+
+解决办法： 'vue$': 'vue/dist/vue.esm.js',不明白为什么，这篇链接有讲原因，但是并不能看懂啊 http://www.imooc.com/article/17868
 ```
 resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -25,3 +29,48 @@ resolve: {
   },
 ```
 
+## babelrc
+### 初始设置
+`"presets": [ "es2015" ]` presets 字段设定转码规则，根据需要安装
+```
+# ES2015转码规则
+$ npm install --save-dev babel-preset-es2015
+
+# react转码规则
+$ npm install --save-dev babel-preset-react
+
+# ES7不同阶段语法提案的转码规则（共有4个阶段），选装一个
+$ npm install --save-dev babel-preset-stage-0
+$ npm install --save-dev babel-preset-stage-1
+$ npm install --save-dev babel-preset-stage-2
+$ npm install --save-dev babel-preset-stage-3
+```
+
+相对应的.babelrc
+```
+ {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-2"
+    ],
+    "plugins": []
+  }
+```
+### 路由懒加载
+`const Home = () => import('@/views/apple')` 如果使用是babel，需要添加 [syntax-dynamic-import](https://babeljs.io/docs/plugins/syntax-dynamic-import/) 插件，才能使 Babel 可以正确地解析语法。
+npm后添加.babelrc文件
+```
+{
+  "presets": [ "es2015" ],
+  "plugins": [ "syntax-dynamic-import" ]
+}
+```
+
+
+
+
+
+
+### 参考
+http://www.ruanyifeng.com/blog/2016/01/babel.html
