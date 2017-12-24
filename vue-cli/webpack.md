@@ -155,4 +155,5 @@ module.exports = merge(common, {
 3. tree -L n 显示项目的层级。n表示层级数
 4. tree -I pattern 用于过滤不想要显示的文件或者文件夹
 5. tree > tree.md 将项目结构输出到tree.md这个文件
-因此我使用` tree -L 3 -I "node_modules" `
+
+因此我使用` tree -L 3 -I "node_modules" `生成上文目录树
