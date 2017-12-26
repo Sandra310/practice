@@ -14,29 +14,28 @@
 var name = '小明'
 var age = 29
 export {name, age}
-```
 或者
-```
 export var name = '小明'
-```
-使用：
-```
+
+//使用
 import HelloComponent,{name, age} from './HelloComponent'
 <Text>{name}</Text>
 ```
+
 3. 方法导出
 ```
 export function sum(a,b){
   return a+b
 }
-```
-使用：
-```
+
 import HelloComponent,{name, age, sum} from './HelloComponent'
 <Text onPress={()=>{
   console.log(sum(2,3))
 }}>{name}</Text>
+//使用
+
 ```
+
 
 ### 参考
 1. 课程 https://www.imooc.com/learn/808
