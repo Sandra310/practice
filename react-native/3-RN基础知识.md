@@ -35,7 +35,26 @@ import HelloComponent,{name, age, sum} from './HelloComponent'
 }}>{name}</Text>
 ```
 ### props
+```
+import React, {PropTypes} from 'React'
+export default class HelloComponent extents React.Component{
+  static defaultProps = {  // 默认值
+    name: '小红',
+    age: 16
+  }
+  static propTypes = {  // 指定类型
+    name: PropTypes.string,
+    age: PropTypes.number.isRequired  //必填
+  }
+  render(){
+    return <Text style={{fontSize:20,backgroundColor:'red'}}>Hello, {this.props.name}</Text>
+  }
+}
 
+
+----------------
+<HelloComponent name="小明"/>
+```
 
 ### 参考
 1. 课程 https://www.imooc.com/learn/808
