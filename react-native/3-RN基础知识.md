@@ -28,13 +28,13 @@ export function sum(a,b){
   return a+b
 }
 
+//使用
 import HelloComponent,{name, age, sum} from './HelloComponent'
 <Text onPress={()=>{
   console.log(sum(2,3))
 }}>{name}</Text>
-//使用
-
 ```
+### props
 
 
 ### 参考
