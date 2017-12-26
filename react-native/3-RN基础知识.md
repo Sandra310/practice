@@ -54,7 +54,13 @@ export default class HelloComponent extents React.Component{
 
 ----------------
 <HelloComponent name="小明"/>
+
+var params = {name:'小明',age:16, sex:'男'}
+<HelloComponent {...params}/>    //使用延展操作符简便赋值
 ```
+
+### state
+
 
 ### 参考
 1. 课程 https://www.imooc.com/learn/808
