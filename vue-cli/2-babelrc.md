@@ -1,7 +1,7 @@
 ## .babelrc 配置
 
 ### webpack 补充1
-书接上文，webpack有个插件，[HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin#configuration)用来生成html文件。如果默认new HtmlWebpackPlugin() 仅仅能生成一个基础的html文件，无法做到提供<div id=app></div> 插入口。因此利用配置中的模板，如下是好用的写法。
+书接上文，webpack有个插件，[HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin#configuration)用来生成html文件。如果默认new HtmlWebpackPlugin() 仅仅能生成一个基础的html文件，无法做到提供`<div id=app></div> `插入口。因此利用配置中的模板，如下是好用的写法。
 ```
 new HtmlWebpackPlugin({
       title: 'Output Management',
