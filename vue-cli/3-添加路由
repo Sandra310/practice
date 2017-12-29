@@ -1,0 +1,72 @@
+## 使用vue-router
+### 文件配置
+1. 在index.js中配置加载
+```
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App }
+})
+```
+2. 在App.vue中配置渲染位置
+```
+<template>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <router-view/>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'app'
+  }
+</script>
+
+<style>
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+  body{
+    margin: 0;
+  }
+</style>
+```
+3. 在router/index.js中配置路由路径
+```
+import Vue from 'vue'
+import Router from 'vue-router'
+
+const Home = () => import('@/views/apple')
+const Main = () => import('@/views/main')
+
+Vue.use(Router)
+
+export default new Router({
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'apple',
+      component: Home
+    },
+    {
+      path: '/main',
+      name: 'main',
+      component: Main
+    }
+  ]
+})
+```
+***
+得到的结果是，localhost:8080主页能够正常加载，但是localhost:8080/main 直接报cannot get 为什么呢？
+
