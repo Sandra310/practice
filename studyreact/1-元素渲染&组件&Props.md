@@ -5,7 +5,6 @@
 4. npm start
 
 ## 1、元素渲染
-first of all <br>
 1. 在HTML中定义一个根节点`<div id="root"></div>`,一般来讲只会定义一个根节点，我们会把所有React渲染到根DOM节点中
 ```
 import React from 'react'
