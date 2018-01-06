@@ -226,7 +226,7 @@ function Person(name, age) {
 }
 var person1 = new Person('小明', 15)
 ```
-10. 稳妥构造函数模式 <br>
+9. 稳妥构造函数模式 <br>
 没有公共属性，而且其方法也不引用this的对象。下面的例子除了使用sayName()方法外，没有其他方法可以访问name的值
 ```
 function Person(name, age) {
