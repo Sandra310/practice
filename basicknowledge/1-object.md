@@ -181,6 +181,38 @@ alert(key) //"name,age,job,sayName"
 var keys = Object.getOwnPropertyNames(Person.prototype)
 alert(keys) //"constructor,name,age,job,sayName"
 ```
+6. 组合使用构造函数模式和原型模式
+```
+function Person(name, age) {
+  this.name = name
+  this.age = age
+  this.friends = ['apple','orange']
+}
+Person.prototype = {
+  constructor: Person,
+  sayName : function () {
+    alert(this.name)
+  }
+}
+
+var person1 = new Person('小明',17)
+var person1 = new Person('Greg',27)
+```
+7. 动态原型模式
+```
+function Person(name, age) {
+  this.name = name
+  this.age = age
+  if(typeof this.sayName() != "function"){
+    Person.prototype.sayName = function () {
+      alert(this.name)
+    }
+  }
+}
+var friend = new Person("Nicholas", 29)
+friend.sayName()
+```
+
 
 
 ### 三、继承
