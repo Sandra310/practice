@@ -106,7 +106,7 @@ function createPerson(name, age) {
 }
 var person1 = createPerson('小明', 15)
 ```
-4. 构造函数模式
+4. 构造函数模式 <br>
 步骤：1) 创建一个新对象 2) 把构造函数的作用域指向新对象，this就指向新对象了 3) 执行 4) 返回新对象
 ```
 function Person(name, age) {
