@@ -127,7 +127,60 @@ o.sayName()  //"Kitty"
 
 ```
 5. 原型模式
+```
+function Person() {
 
+}
+Person.prototype.name = 'Nicholas'
+Person.prototype.age = 29
+Person.prototype.job = "Software Engineer"
+Person.prototype.sayName = function () {
+  alert(this.name)
+}
+var person1 = new Person()
+var person2 = new Person()
+alert(person1.sayName == person2.sayName())  //true
+```
 ![](https://github.com/Sandra310/practice/blob/master/basicknowledge/images/1.png)
+
+#### 判断属性的各种方法
+1. isPrototypeOf()<br>
+虽然无法通过访问[[Prototype]] 来确定对象之间的关系，但是可以用 isPrototypeOf(),如果[[Prototype]]指向调用isPrototypeOf()方法的对象，那么就返回true
+```
+alert(Person.prototype.isPrototypeOf(person1)) //true
+alert(Person.prototype.isPrototypeOf(person2)) //true
+```
+2. Object.getPrototypeOf()<br>
+ES5增加了一个新方法 Object.getPrototypeOf() 返回[[Prototype]]的值，即该对象的原型
+```
+alert(Object.getPrototypeOf(person1) == Person.prototype)  //true
+alert(Object.getPrototypeOf(person1).name)  //Nicholas
+```
+3. hasOwnPrototype()<br>
+使用 hasOwnPrototype() 方法可以检测属性是存在于实例还是原型中。只有存在于实例中会返回true
+```
+alert(person1.hasOwnProperty('name')) //false
+```
+4. in<br>
+使用 in 可以判断属性是否存在于对象中，无论实例还是原型。使用 for-in 循环，返回的是所有能够通过对象访问、可枚举的属性，屏蔽了原型中不可枚举的属性<br>
+所以如果要判断一个属性是否是原型的
+```
+function hasPrototypeProperty(object, name) {
+  return !object.hasOwnProperty(name) && (name in object)
+}
+```
+5. Object.keys()<br>
+返回一个包含所有可枚举的实例属性的字符串数组
+```
+var key = Object.keys(Person.prototype)
+alert(key) //"name,age,job,sayName"
+```
+6. Object.getOwnPropertyNames()<br>
+如果要得到所有实例的属性，注意是实例不包含原型属性，无论是否可枚举，使用Object.getOwnPropertyNames()
+```
+var keys = Object.getOwnPropertyNames(Person.prototype)
+alert(keys) //"constructor,name,age,job,sayName"
+```
+
 
 ### 三、继承
