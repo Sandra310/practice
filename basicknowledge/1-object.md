@@ -212,7 +212,31 @@ function Person(name, age) {
 var friend = new Person("Nicholas", 29)
 friend.sayName()
 ```
-
-
-
+8. 寄生构造函数模式<br>
+除了new操作符并把包装的叫构造函数外，和工厂函数一模一样
+```
+function Person(name, age) {
+  var o = new Object()
+  o.name = name
+  o.age = age
+  o.sayName = function () {
+    alert(this.name)
+  }
+  return o
+}
+var person1 = new Person('小明', 15)
+```
+10. 稳妥构造函数模式 <br>
+没有公共属性，而且其方法也不引用this的对象。下面的例子除了使用sayName()方法外，没有其他方法可以访问name的值
+```
+function Person(name, age) {
+  var o = new Object()
+  o.name = name
+  o.age = age
+  o.sayName = function () {
+    alert(name)
+  }
+  return o
+}
+```
 ### 三、继承
