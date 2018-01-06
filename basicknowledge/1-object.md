@@ -128,5 +128,6 @@ o.sayName()  //"Kitty"
 ```
 5. 原型模式
 
+![](https://github.com/Sandra310/practice/blob/master/basicknowledge/images/1.png)
 
 ### 三、继承
