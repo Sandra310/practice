@@ -299,4 +299,60 @@ alert(instance2.colors) //"red,blue,green"
 instance2.sayName() // "Greg"
 instance2.sayAge() // 27
 ```
-#### 4、原型式继承
+#### 3、原型式继承
+相当于对传入的o进行了浅复制
+```
+function object(o) {
+  function F() {}
+  F.prototype = o
+  return new F()
+}
+var person = {
+  name: "Nicholas",
+  colors: ["red", "blue", "green"]
+}
+
+var person1 = object(person)
+person1.name = "Greg"
+person1.colors.push("black")
+
+var person2 = object(person)
+person2.name = "Linda"
+person2.colors.push("orange")
+
+console.log(person.colors)//["red", "blue", "green", "black", "orange"]
+console.log(person.isPrototypeOf(person1)) //true
+console.log(Object.getPrototypeOf(person1) == person.prototype) //false
+console.log(Object.getPrototypeOf(person1) == person) //true
+```
+ES5新增了Object.create()方法规范了原型式继承，传入一个参数时同object方法、第二个参数为每个属性通过自己的描述符定义
+```
+var anotherPerson = Object.create(person,{
+  name:{
+    value: "Greg"
+  }
+})
+```
+#### 4、寄生式继承
+```
+function createAnother(original) {
+  var clone = object(original)
+  clone.sayHi = function () { //做了某些工作
+    alert("hi")
+  }
+  return clone
+}
+```
+#### 5、寄生组合式继承（最理想）
+组合继承的不足：无论什么情况，都会调用两次超类型构造函数；<br>
+一次是创建子类型原型的时候 SubType.prototype = new SuperType() <br>
+另一次是在子类型构造函数内部 SuperType.call(this,name) <br>
+子类型会包含超类型对象的全部实例属性，不得不在调用子类型构造函数时重写这些属性。<br><br>
+寄生组合式继承的基本模式
+```
+function inheritPrototype(subType, superType) {
+  var prototype = object(superType.prototype) //创建对象
+  prototype.constructor = subType  //增强对象
+  subType.prototype = prototype    //指定对象
+}
+```
