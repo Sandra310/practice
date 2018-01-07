@@ -2,7 +2,7 @@
 ### 一、类型属性
 1) 数据属性
  - [[Configurable]] true  可配置  一旦变为不可配置就不能还原了 
- - [[Enumerrable]] true   可枚举
+ - [[Enumerable]] true   可枚举
  - [[Writable]] true      可变值
  - [[Value]] undefined    数据值 <br><br>
 若要修改以上属性默认的特性，必须使用ES5的 Object.defineProperty(对象, 属性名, 特性)
@@ -21,7 +21,7 @@ alert(person.name) //Nicholas
 ```
 2) 访问器属性
  - [[Configurable]] true
- - [[Enumerrable]] true
+ - [[Enumerable]] true
  - [[Get]] undefined  在读取属性时调用的函数
  - [[Set]] undefined  在写入属性时调用的函数 <br><br>
  同样的，若要修改以上属性默认的特性，必须使用ES5的 Object.defineProperty
