@@ -372,3 +372,5 @@ SubType.prototype.sayAge = function () {
   alert(this.age)
 }
 ```
+![](https://github.com/Sandra310/practice/blob/master/basicknowledge/images/3.png)
+![](https://github.com/Sandra310/practice/blob/master/basicknowledge/images/4.png)
