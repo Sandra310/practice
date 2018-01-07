@@ -240,7 +240,7 @@ function Person(name, age) {
 }
 ```
 ### 三、继承
-## 原型链
+#### 原型链
 引用类型值会所有原型链上对象共同使用，会造成问题
 ```
 function SuperType() {
