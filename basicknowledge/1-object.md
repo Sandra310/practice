@@ -265,6 +265,7 @@ alert(instance.getSubValue())  //false
 ![](https://github.com/Sandra310/practice/blob/master/basicknowledge/images/2.png)
 
 #### 2.组合继承
+最常用的继承模式
 ```
 function SuperType(name) {
   this.name = name
@@ -276,7 +277,8 @@ SuperType.prototype.sayName = function () {
 
 function SubType(name, age) {
   //通过apply和call方法可以在新创建的对象上执行构造函数
-  SuperType.call(this, name) //继承了SuperType,同时还传递了参数(这里只能继承到Super本人的属性，例如colors、name，并不能将Super原型上的属性继承到)
+  //继承了SuperType,同时还传递了参数(这里只能继承到Super本人的属性，例如colors、name，并不能将Super原型上的属性继承到)
+  SuperType.call(this, name) 
   this.age = age
 }
 //实现继承
@@ -297,3 +299,4 @@ alert(instance2.colors) //"red,blue,green"
 instance2.sayName() // "Greg"
 instance2.sayAge() // 27
 ```
+#### 4、原型式继承
