@@ -156,8 +156,8 @@ ES5增加了一个新方法 Object.getPrototypeOf() 返回[[Prototype]]的值，
 alert(Object.getPrototypeOf(person1) == Person.prototype)  //true
 alert(Object.getPrototypeOf(person1).name)  //Nicholas
 ```
-3. hasOwnPrototype()<br>
-使用 hasOwnPrototype() 方法可以检测属性是存在于实例还是原型中。只有存在于实例中会返回true
+3. hasOwnProperty()<br>
+使用 hasOwnProperty() 方法可以检测属性是存在于实例还是原型中。只有存在于实例中会返回true
 ```
 alert(person1.hasOwnProperty('name')) //false
 ```
