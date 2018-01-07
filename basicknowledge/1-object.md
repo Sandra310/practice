@@ -240,3 +240,26 @@ function Person(name, age) {
 }
 ```
 ### 三、继承
+## 原型链
+引用类型值会所有原型链上对象共同使用，会造成问题
+```
+function SuperType() {
+  this.property = true
+}
+SuperType.prototype.getSuperValue = function () {
+  return this.property
+}
+function SubType() {
+  this.subproperty = false
+}
+SubType.prototype = new SuperType()
+SubType.prototype.getSubValue = function () {
+  return this.subproperty
+}
+
+var instance = new SubType()
+alert(instance.getSuperValue())  //true
+alert(instance.getSubValue())  //false
+```
+
+![](https://github.com/Sandra310/practice/blob/master/basicknowledge/images/2.png)
