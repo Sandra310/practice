@@ -74,7 +74,7 @@ alert(descriptor.configurable)  //false
 ```
 
 ### 二、创建对象的方法
-1. 创建Object实例
+#### 1. 创建Object实例
 ```
 var person = new Object()
 person.name = '小明'
@@ -83,7 +83,7 @@ person.sayName = function () {
   alert(this.name)
 }
 ```
-2. 创建对象字面量
+#### 2. 创建对象字面量
 ```
 var person = {
   name:'小明',
@@ -93,7 +93,7 @@ var person = {
   }
 }
 ```
-3. 工厂模式
+#### 3. 工厂模式
 ```
 function createPerson(name, age) {
   var o = new Object()
@@ -106,7 +106,7 @@ function createPerson(name, age) {
 }
 var person1 = createPerson('小明', 15)
 ```
-4. 构造函数模式 <br>
+#### 4. 构造函数模式 <br>
 步骤：1) 创建一个新对象 2) 把构造函数的作用域指向新对象，this就指向新对象了 3) 执行 4) 返回新对象
 ```
 function Person(name, age) {
@@ -126,7 +126,7 @@ Person.call(o, "Kitty", 13) //在另一个对象的作用域中调用
 o.sayName()  //"Kitty"
 
 ```
-5. 原型模式
+#### 5. 原型模式
 ```
 function Person() {
 
@@ -181,7 +181,7 @@ alert(key) //"name,age,job,sayName"
 var keys = Object.getOwnPropertyNames(Person.prototype)
 alert(keys) //"constructor,name,age,job,sayName"
 ```
-6. 组合使用构造函数模式和原型模式
+#### 6. 组合使用构造函数模式和原型模式
 ```
 function Person(name, age) {
   this.name = name
@@ -198,7 +198,7 @@ Person.prototype = {
 var person1 = new Person('小明',17)
 var person1 = new Person('Greg',27)
 ```
-7. 动态原型模式
+#### 7. 动态原型模式
 ```
 function Person(name, age) {
   this.name = name
@@ -212,7 +212,7 @@ function Person(name, age) {
 var friend = new Person("Nicholas", 29)
 friend.sayName()
 ```
-8. 寄生构造函数模式<br>
+#### 8. 寄生构造函数模式<br>
 除了new操作符并把包装的叫构造函数外，和工厂函数一模一样
 ```
 function Person(name, age) {
@@ -226,7 +226,7 @@ function Person(name, age) {
 }
 var person1 = new Person('小明', 15)
 ```
-9. 稳妥构造函数模式 <br>
+#### 9. 稳妥构造函数模式 <br>
 没有公共属性，而且其方法也不引用this的对象。下面的例子除了使用sayName()方法外，没有其他方法可以访问name的值
 ```
 function Person(name, age) {
@@ -240,7 +240,7 @@ function Person(name, age) {
 }
 ```
 ### 三、继承
-#### 原型链
+#### 1.原型链
 引用类型值会所有原型链上对象共同使用，会造成问题
 ```
 function SuperType() {
@@ -263,3 +263,37 @@ alert(instance.getSubValue())  //false
 ```
 
 ![](https://github.com/Sandra310/practice/blob/master/basicknowledge/images/2.png)
+
+#### 2.组合继承
+```
+function SuperType(name) {
+  this.name = name
+  this.colors = ["red", "blue", "green"]
+}
+SuperType.prototype.sayName = function () {
+  alert(this.name)
+}
+
+function SubType(name, age) {
+  //通过apply和call方法可以在新创建的对象上执行构造函数
+  SuperType.call(this, name) //继承了SuperType,同时还传递了参数(这里只能继承到Super本人的属性，例如colors、name，并不能将Super原型上的属性继承到)
+  this.age = age
+}
+//实现继承
+SubType.prototype = new SuperType()
+SubType.prototype.constructor = SubType
+SubType.prototype.sayAge = function () {
+  alert(this.age)
+}
+
+var instance1 = new SubType("Nicholas", 29)
+instance1.colors.push("black")
+alert(instance1.colors) //"red,blue,green,black"
+instance1.sayName() // "Nicholas"
+instance1.sayAge() // 29
+
+var instance2 = new SubType("Greg", 27)
+alert(instance2.colors) //"red,blue,green"
+instance2.sayName() // "Greg"
+instance2.sayAge() // 27
+```
