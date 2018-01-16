@@ -4,7 +4,7 @@
 ### 场景
 有一些对象往往只需要一个，比如线程池、全局缓存、浏览器中的window <br>例如：登录窗口、loading等等，只会被创建一次
 ## 代理单例
-`
+```
 var CreateDiv = function (html) {
   this.html = html
   this.init()
@@ -29,9 +29,9 @@ var ProxySingletonCreateDiv = (function () {
 var a = new ProxySingletonCreateDiv('sven1')
 var b = new ProxySingletonCreateDiv('sven2')
 alert(a===b)
-`
+```
 ## 惰性单例
-`
+```
 var getSingle = function (fn) {
   var result
   return function () {
@@ -51,4 +51,4 @@ document.getElementById('loginBtn').onclick = function () {
   var loginLayer = createSingleLoginLayer()
   loginLayer.style.display = 'block'
 }
-`
+```
