@@ -47,6 +47,7 @@ var createLoginLayer = function () {
   return div
 }
 var createSingleLoginLayer = getSingle(createLoginLayer)
+
 document.getElementById('loginBtn').onclick = function () {
   var loginLayer = createSingleLoginLayer()
   loginLayer.style.display = 'block'
