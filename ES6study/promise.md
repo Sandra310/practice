@@ -16,7 +16,7 @@
 
     if (true){
       resolve();
-      console.log("resolve 后")
+      console.log("resolve后")
     } else {
       reject(error);
     }
@@ -43,10 +43,49 @@
 
   console.log('Hi!');
 ```
-输出：Promise resolve 后 Hi! resolved. child resolve <br>
+输出：Promise resolve后 Hi! resolved. child resolve <br>
 * 可以看出promise的执行顺序，新建立即执行。而后走其余js代码，待异步返回时走then方法。
 * child的resolve方法将promise作为参数，即模拟一个异步操作的结果是返回另一个异步操作，此时child就要等待promise的返回结果。如果promise在pending，child也会等待，直到promise返回结果。
 
+## Promise.prototype.then
+then方法返回的是一个新的Promise实例（注意，不是原来那个Promise实例）。因此可以采用链式写法，即then方法后面再调用另一个then方法。
+```
+getJSON("/post/1.json").then(function(post) {
+  return getJSON(post.commentURL);
+}).then(function funcA(comments) {
+  console.log("resolved: ", comments);
+}, function funcB(err){
+  console.log("rejected: ", err);
+});
+
+
+//箭头函数简写
+getJSON("/post/1.json").then(
+  post => getJSON(post.commentURL)
+).then(
+  comments => console.log("resolved: ", comments),
+  err => console.log("rejected: ", err)
+);
+```
+第一个回调函数完成以后，会将返回结果作为参数，传入第二个回调函数。
+
+## Promise.prototype.catch
+用于指定发生错误时的回调函数。
+如果对象状态变为resolved，则会调用then方法指定的回调函数；如果异步操作抛出错误，状态就会变为rejected，就会调用catch方法指定的回调函数，处理这个错误。如果运行中抛出错误，也会被catch方法捕获。<br>
+错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获
+
+
+## Promise.all()
+
+## Promise.race()
+
+## Promise.resolve()
+
+## Promise.reject()
+
+## Promise.try()
+
+## 应用案例
 
 
 
