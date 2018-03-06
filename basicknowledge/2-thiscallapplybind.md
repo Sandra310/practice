@@ -45,10 +45,10 @@ fun.call(thisArg, arg1, arg2, ...)
 调用一个对象的一个方法，以另一个对象替换当前对象
 call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisArg 指定的新对象。
 thisArg的取值有以下4种情况：
-（1） 不传，或者传null,undefined， 函数中的this指向window对象
-（2） 传递另一个函数的函数名，函数中的this指向这个函数的引用
-（3） 传递字符串、数值或布尔类型等基础类型，函数中的this指向其对应的包装对象，如 String、Number、Boolean
-（4） 传递一个对象，函数中的this指向这个对象
+1. 不传，或者传null,undefined， 函数中的this指向window对象
+2. 传递另一个函数的函数名，函数中的this指向这个函数的引用
+3. 传递字符串、数值或布尔类型等基础类型，函数中的this指向其对应的包装对象，如 String、Number、Boolean
+4. 传递一个对象，函数中的this指向这个对象
 
 ## apply
 
