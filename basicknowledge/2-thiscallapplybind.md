@@ -141,7 +141,10 @@ greet.call(i); // Douglas Crockford Is An Awesome Javascript Developer
 ```
 
 ## apply
-
+与call()方法类似，只是call接受的是若干个参数列表，apply接受的是一个包含多个参数的数组
+```
+func.apply(thisArg[, argsArray])
+```
 ## bind
 
 ### 参考
