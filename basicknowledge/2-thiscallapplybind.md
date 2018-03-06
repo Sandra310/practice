@@ -39,7 +39,9 @@ document.getElementById('div1').onclick = function(){
 4. call、apply调用
 
 ## call
-
+<[].concat.apply([], arr)>
+调用一个对象的一个方法，以另一个对象替换当前对象
+call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。
 ## apply
 
 ## bind
