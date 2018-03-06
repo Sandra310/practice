@@ -145,6 +145,13 @@ greet.call(i); // Douglas Crockford Is An Awesome Javascript Developer
 ```
 func.apply(thisArg[, argsArray])
 ```
+应用:flatten做数组降维的，即把二维数组变一维
+```
+var a = [[1],[2],[3]]
+[].concat.apply([],a) //输出 [1,2,3]
+[].concat(a) // 输出 [[1],[2],[3]]
+```
+
 ## bind
 
 ```
