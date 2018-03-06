@@ -147,5 +147,10 @@ func.apply(thisArg[, argsArray])
 ```
 ## bind
 
+```
+fun.bind(thisArg[, arg1[, arg2[, ...]]])
+```
+
 ### 参考
 https://www.cnblogs.com/libin-1/p/6069031.html
+MDN
