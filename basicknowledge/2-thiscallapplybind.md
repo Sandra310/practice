@@ -160,6 +160,16 @@ var a = [[1],[2],[3]]
 fun.bind(thisArg[, arg1[, arg2[, ...]]])
 ```
 
+简单实现：
+```
+Function.prototype.bind = function(context){
+  self = this;  //保存this，即调用bind方法的目标函数
+  return function(){
+      return self.apply(context,arguments);
+  };
+};
+```
+
 ### 参考
 https://www.cnblogs.com/libin-1/p/6069031.html
 MDN
