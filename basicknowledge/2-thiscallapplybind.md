@@ -49,7 +49,24 @@ thisArg的取值有以下4种情况：
 2. 传递另一个函数的函数名，函数中的this指向这个函数的引用
 3. 传递字符串、数值或布尔类型等基础类型，函数中的this指向其对应的包装对象，如 String、Number、Boolean
 4. 传递一个对象，函数中的this指向这个对象
+```
+function a(){   
+  console.log(this);   //输出函数a中的this对象
+}       
 
+function b(){}       
+
+var c={name:"call"};    //定义对象c  
+
+a.call();   //window
+a.call(null);   //window
+a.call(undefined);   //window
+a.call(1);   //Number
+a.call('');   //String
+a.call(true);   //Boolean
+a.call(b);   //function b(){}
+a.call(c);   //Object
+```
 ## apply
 
 ## bind
