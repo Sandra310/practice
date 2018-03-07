@@ -28,6 +28,19 @@ this.setState((prevState, props)=>{
   counter: prevState.counter + props.increament
 })
 ```
+异步但是可以增加回调，或者使用setTimeOut来达到更新完state再调用方法
+```
+this.setState({
+  selection: value
+}, this.fireOnSelect)
+
+this.setState({
+  selection: value
+});
+
+setTimeout(this.fireOnSelect, 0);
+```
+
 ### 3、事件处理
 #### 绑定属性驼峰命名
 #### 绑定this
