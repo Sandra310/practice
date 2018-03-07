@@ -34,10 +34,10 @@ this.setState({
   selection: value
 }, this.fireOnSelect)
 
+
 this.setState({
   selection: value
 });
-
 setTimeout(this.fireOnSelect, 0);
 ```
 
