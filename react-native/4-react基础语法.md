@@ -1,5 +1,19 @@
 ## React基础
-### 1、组件 & Props
+### 1、元素渲染
+在HTML中定义一个根节点<div id="root"></div>,一般来讲只会定义一个根节点，我们会把所有React渲染到根DOM节点中
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+const element = <h1>Hello, world</h1>;  //一个元素
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+
+### 2、组件 & Props
 #### 定义组件：函数、类
 #### props的只读性
 
@@ -15,7 +29,7 @@ class Welcome extends React.Component{
   }
 }
 ```
-### 2、state & 生命周期
+### 3、state & 生命周期
 #### 不能直接更新状态
 #### 状态更新可能异步
 #### 单向数据流
@@ -41,7 +55,7 @@ this.setState({
 setTimeout(this.fireOnSelect, 0);
 ```
 
-### 3、事件处理
+### 4、事件处理
 #### 绑定属性驼峰命名
 #### 绑定this
 ```
@@ -58,16 +72,16 @@ handleClick(){...}
 //箭头函数
 <button onClick={(e)=>this.handleClick(id,e)}>
 ```
-### 4、条件渲染
+### 5、条件渲染
 #### 与运算符&
 ```
 {xx.length && <h1>...</h1>}
 ```
 
-### 5、列表 & keys
+### 6、列表 & keys
 keys可在DOM中某元素被增加或删除时帮助React识别变化，列表渲染常用map
 
-### 6、表单
+### 7、表单
 ```
 //若有多个输入，可以给每个元素name，根据event.target.name判断
 <input value.. onChange={this.handleChange}/>
@@ -75,7 +89,7 @@ handleChange(e){
 ...
 }
 ```
-### 7、组合 vs 继承
+### 8、组合 vs 继承
 一般不用继承建议使用组合
 children在内部包，命名写在属性上
 ```
