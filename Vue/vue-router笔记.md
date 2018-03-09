@@ -54,3 +54,22 @@ const User = {
   }
 }
 ```
+### 嵌套路由
+在模板里加入<router-view> 配置在routes中的children
+```
+routes: [{
+    path: ‘/user/:id’, component: User,
+    children: [
+       { path: ‘profile’ , component:UserProfile },   /user/:id/profile
+       { path: ‘posts’ , component:UserPosts }      /user/:id/posts
+    ] 
+}]
+```
+### 编程式的导航
+```
+router.push( location )  router.replace( location )   router.go( n )  n向前向后多少步
+router.push( ‘home’ )    { path: ’home’ }   { name:’user’, params: { userId:123 }}
+```
+
+
+
