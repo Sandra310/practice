@@ -8,9 +8,13 @@
 ## ES6学习笔记
 * [promise](https://github.com/Sandra310/practice/blob/master/ES6study/promise.md)
 
+## Vue学习笔记
+* [vue-router](https://github.com/Sandra310/practice/blob/master/Vue/vue-router%E7%AC%94%E8%AE%B0.md)
+
 ## 设计模式
 * [单例模式](https://github.com/Sandra310/practice/blob/master/design-mode/单例模式.md)
 * [装饰者模式](https://github.com/Sandra310/practice/blob/master/design-mode/装饰者模式.md)
+* [发布订阅(观察者)](https://github.com/Sandra310/practice/blob/master/design-mode/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85(%E8%A7%82%E5%AF%9F%E8%80%85).md)
 
 ## HTTP权威指南笔记
 * [cookie](https://github.com/Sandra310/practice/blob/master/HTTPstudy/cookie.md)
