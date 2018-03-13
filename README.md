@@ -4,6 +4,7 @@
 * [对象与继承](https://github.com/Sandra310/practice/blob/master/basicknowledge/1-object.md) 
 * [this、call、apply、bind](https://github.com/Sandra310/practice/blob/master/basicknowledge/2-thiscallapplybind.md) 
 * [数组常见操作](https://github.com/Sandra310/practice/blob/master/basicknowledge/3-array.md)
+* [正则](https://github.com/Sandra310/blog/issues/16)
 
 ## ES6学习笔记
 * [promise](https://github.com/Sandra310/practice/blob/master/ES6study/promise.md)
