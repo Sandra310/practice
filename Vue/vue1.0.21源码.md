@@ -66,3 +66,77 @@ Object.defineProperty(Vue.prototype, '$data', {
   }
 })
 ```
+setData方法如下：
+* 先循环oldData的key,如果newData中没有了，执行_unproxy移除代理
+* 循环newData的key，如果this中没有该key，执行_proxy添加代理
+* observe(newData, this)
+```
+Vue.prototype._setData = function (newData) {
+  newData = newData || {}
+  var oldData = this._data
+  this._data = newData
+  var keys, key, i
+  // unproxy keys not present in new data
+  keys = Object.keys(oldData)
+  i = keys.length
+  while (i--) {
+    key = keys[i]
+    if (!(key in newData)) {
+      this._unproxy(key)
+    }
+  }
+  // proxy keys not already proxied,
+  // and trigger change for changed values
+  keys = Object.keys(newData)
+  i = keys.length
+  while (i--) {
+    key = keys[i]
+    if (!hasOwn(this, key)) {
+      // new property
+      this._proxy(key)
+    }
+  }
+  oldData.__ob__.removeVm(this)
+  observe(newData, this)
+  this._digest()
+}
+```
+unproxy
+```
+if (!isReserved(key)) {
+  delete this[key]
+}
+```
+proxy:这样 this.prop === this._data.prop
+```
+if (!isReserved(key)) {
+  var self = this
+  Object.defineProperty(self, key, {
+    configurable: true,
+    enumerable: true,
+    get: function proxyGetter () {
+      return self._data[key]
+    },
+    set: function proxySetter (val) {
+      self._data[key] = val
+    }
+  })
+}
+```
+isReserved：看是否以$或者_开头 
+```
+var c = (str + '').charCodeAt(0)
+return c === 0x24 || c === 0x5F
+```
+
+2、定义_initState方法，顺次执行各种初始化
+```
+Vue.prototype._initState = function () {
+  this._initProps()
+  this._initMeta()
+  this._initMethods()
+  this._initData()
+  this._initComputed()
+}
+```
+
