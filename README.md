@@ -35,6 +35,7 @@
 
 ## 坑们
 * [vue](https://github.com/Sandra310/practice/blob/master/%E5%9D%91%E4%BB%AC/vue.md)
+* [小程序](https://github.com/Sandra310/practice/blob/master/%E5%9D%91%E4%BB%AC/小程序.md)
 
 ## 其他
 * [2017工作总结](https://github.com/Sandra310/practice/blob/master/other/2017%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.md)
