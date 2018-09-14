@@ -31,7 +31,13 @@ CVS
 npm-debug.log
 ```
 * main(string)
-指定模块的入口程序文件
+> 指定模块的入口程序文件
+
+* devDependencies(object)
+> 模块所需依赖
+
+* private
+> 设置"private": true，则npm会拒绝发布它
 
 ### 参考
 https://www.cnblogs.com/nullcc/p/5829218.html
