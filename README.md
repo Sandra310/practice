@@ -39,6 +39,7 @@
 
 ## 其他
 * [2017工作总结](https://github.com/Sandra310/practice/blob/master/other/2017%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.md)
+* [eslint文档翻译](https://github.com/Sandra310/practice/blob/master/other/eslint.md)
 
 特别好的reactnative animated
 http://www.alloyteam.com/2016/01/reactnative-animated/
