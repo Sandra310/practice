@@ -18,7 +18,7 @@ Single-spa项目包含如下
 1. 许多应用程序，每个应用程序有点像整个SPA本身。 <br>
 应用程序响应url路由事件，并且必须知道如何从DOM引导，装载和卸载它们。 SPA和应用程序之间的主要区别在于应用程序必须共存，并且每个应用程序都不具有自己的html页面。 例如，您的React或Angular应用程序是活动或休眠的应用程序。 处于活动状态时，它们会侦听url路由事件并将内容放在DOM上。 休眠时，它们不会侦听url路由事件，而是完全从DOM中删除。
 2. 一个single-spa-config <br>
-这个config是个html页面，里面的JavaScript注册了各应用的
+这个config是个html页面，里面的JavaScript注册了各应用的名字、加载应用程序代码的方法、确定应用程序何时处于活动/休眠状态的函数
 
 如果你的项目没有通过scratch开始，那么需要迁移spa成为一个独立应用
 React - Migrating to single-spa
