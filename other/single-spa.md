@@ -21,5 +21,5 @@ Single-spa项目包含如下
 这个config是个html页面，里面的JavaScript注册了各应用的名字、加载应用程序代码的方法、确定应用程序何时处于活动/休眠状态的函数
 
 如果你的项目没有通过scratch开始，那么需要迁移spa成为一个独立应用
-React - Migrating to single-spa
-AngularJS - Migrating to single-spa
+* React - Migrating to single-spa
+* AngularJS - Migrating to single-spa
