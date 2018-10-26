@@ -1,0 +1,53 @@
+const fs = require('fs')
+const path = require('path')
+
+function deleteFolder (path, flag = true) {  // 第二个参数为false，则只删除文件夹中内容而不删除该文件夹
+  var files = []
+  if(fs.existsSync(path)) {
+    files = fs.readdirSync(path)
+    files.forEach(function(file, index) {
+      var curPath = path + "/" + file
+      if(fs.statSync(curPath).isDirectory()) { // recurse
+        deleteFolder(curPath)
+      } else {
+        fs.unlinkSync(curPath)
+      }
+    })
+    if (flag) {
+      fs.rmdirSync(path)
+    }
+  }
+}
+
+function copyFolder (from, to) {
+  var files = []
+  if (fs.existsSync(from)) {
+    files = fs.readdirSync(from)
+    files.forEach(function (file) {
+      let curfrom = from + '/' + file
+      let curto = to + '/' + file
+      if(fs.statSync(curfrom).isDirectory()) {
+        fs.mkdir(curto, function (err) {
+          if (err) {
+            return console.error(err)
+          } else {
+            copyFolder(curfrom, curto)
+          }
+        })
+      } else {
+        copyFile(curfrom, curto)
+      }
+    })
+  }
+}
+
+
+function copyFile(from, to) {
+  fs.createReadStream(from).pipe(fs.createWriteStream(to))
+}
+
+
+module.exports = {
+  deleteFolder,
+  copyFolder
+}
